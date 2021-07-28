@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Stopwatch</string>
+    <string name="stopwatch">Stopwatch</string>
 </resources>

@@ -1,18 +1,14 @@
 package com.ihrsachin.stopwatch
 
-import android.media.session.MediaSession
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.text.Layout
-import android.widget.ImageButton
-import android.widget.RelativeLayout
-import android.widget.ScrollView
-import android.widget.TextView
+import android.view.LayoutInflater
+import android.widget.*
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,13 +16,13 @@ class MainActivity : AppCompatActivity() {
         val startButton = findViewById<ImageButton>(R.id.startButton)
         val resetButton = findViewById<ImageButton>(R.id.resetButton)
         val takeNoteButton = findViewById<ImageButton>(R.id.takeNoteButton)
-        val noteTimeScrollView = findViewById<ScrollView>(R.id.noteTimeScrollView)
         var isRunning = false
         var time: Long = 0
         var timeLaps: Long = 0
         var lapNo = 0
         val mHandler = Handler()
         var timeAtNoted : Long = 0
+        val llt : LinearLayout = findViewById(R.id.linearUnderScroll)
 
 
         startButton.setOnClickListener {
@@ -61,22 +57,32 @@ class MainActivity : AppCompatActivity() {
 
         resetButton.setOnClickListener {
             timeTextView.text = "00:00.00"
+            isRunning = false
             time = 0
             timeLaps = 0
+            lapNo = 0
+            timeAtNoted = 0
+            llt.removeAllViews()
+            mHandler.removeCallbacksAndMessages(null)
         }
 
         takeNoteButton.setOnClickListener{
-//            val notedItemView = findViewById<RelativeLayout>(R.id.itemNote)
-//            val lapNoTextView = findViewById<TextView>(R.id.lapCount)
-//            val elapsedTimeView = findViewById<TextView>(R.id.elapsedTime)
-//            val notedTimeView = findViewById<TextView>(R.id.notedTime)
+            lapNo++
+            val v = LayoutInflater.from(this).inflate(R.layout.note_times,null)
+
+            val lapNoTextView = v.findViewById<TextView>(R.id.lapCount)
+            val elapsedTimeView = v.findViewById<TextView>(R.id.elapsedTime)
+            val notedTimeView = v.findViewById<TextView>(R.id.notedTime)
 
 
+            lapNoTextView.text = "Lap $lapNo"
 
-  //          timeAtNoted = time
-//            notedTimeView.text = formatTime(time)
-//
-//            elapsedTimeView.text = formatTime(time - timeAtNoted)
+
+            notedTimeView.text = formatTime(timeLaps+ time)
+            elapsedTimeView.text = "Elapsed ${formatTime(time + timeLaps - timeAtNoted)}"
+            timeAtNoted = time+timeLaps
+
+            llt.addView(v,0)
 
 
         }

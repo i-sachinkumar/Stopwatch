@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:layout_width="0dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/stopwatchText"
+            android:text="@string/stopwatch"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stopwatch"
+            android:layout_marginTop="20dp"
+            android:layout_width="200dp"
+            android:layout_gravity="center"
+            android:layout_height="200dp"
+            android:outlineAmbientShadowColor="@color/white"
+            app:cardBackgroundColor="#EDEFEF"
+            app:cardCornerRadius="1000dp"
+            app:cardElevation="0dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:rotationX="0"
+                app:cardCornerRadius="1000dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/timeTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:text="00:00.00"
+                    android:textColor="@color/black"
+                    android:textSize="28sp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="1dp"
+        android:background="#A3A1A1"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/noteTimeScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/stopwatch">
+
+
+            <LinearLayout
+                android:id="@+id/linearUnderScroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/buttonsLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <ImageButton
+                android:id="@+id/resetButton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:alpha="0.2"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:clickable="false"
+                android:gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/restart" />
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="100dp"
+                app:cardBackgroundColor="@color/teal_700"
+                android:layout_width="42dp"
+                android:layout_gravity="center"
+                android:layout_height="42dp">
+                <ImageButton
+                    android:layout_gravity="center"
+                    android:id="@+id/startButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/teal_700"
+                    android:scaleType="fitXY"
+                    android:src="@android:drawable/ic_media_play" />
+            </androidx.cardview.widget.CardView>
+
+
+            <ImageButton
+                android:id="@+id/takeNoteButton"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:alpha="0.2"
+                android:layout_weight="1.2"
+                android:background="@color/white"
+                android:clickable="false"
+                android:scaleType="fitCenter"
+                android:src="@drawable/timenote" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
