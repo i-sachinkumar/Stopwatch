@@ -5,8 +5,7 @@ you can note the Lapsed time multiple times.
 
 ### see the screenshots
 
-![screenshot1](images/stopwatch_home.jpeg)
+<img src = "images/stopwatch_home.jpeg" width="40%" float="left"/>
+<img src = "images/stopwatch_potrait.jpeg" width="40%" float="left"/>
+<img src = "images/stopwatch_landscape.jpeg" width="80%" float="left"/>
 
-![screenshot1](images/stopwatch_potrait.jpeg)
-
-![screenshot1](images/stopwatch_landscape.jpeg)
