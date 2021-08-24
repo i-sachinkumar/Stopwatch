@@ -10,7 +10,6 @@
         android:layout_marginVertical="10dp"
         android:id="@+id/stopwatchText"
         android:text="@string/stopwatch"
-        android:background="@color/white"
         android:textSize="20sp"
         android:layout_marginLeft="16dp"
         android:textColor="@color/black"
